@@ -147,3 +147,126 @@ Expandir o combinador de ervas atual com mais ervas brasileiras tradicionais, in
 ✅ Definição de temperaturas e usos mágicos
 🔄 Próximo: Implementação no código do combinador
 
+
+
+## Segunda Expansão - Mais Ervas Brasileiras Tradicionais
+
+### Barbatimão (Stryphnodendron adstringens)
+- **Regência Planetária**: Saturno (cura, estabilidade, ancestrais)
+- **Temperatura**: Fria
+- **Usos Mágicos**: Cura profunda, cicatrização espiritual, equilíbrio corpo-mente-alma, consagração de instrumentos mágicos, conexão ancestral
+- **Gênero**: Masculino
+- **Observações**: Casca preferida dos Pretos Velhos, forte energia de cura, usada para consagrar instrumentos mágicos
+
+### Sucupira (Pterodon emarginatus)
+- **Regência Planetária**: Júpiter (força, resistência, expansão)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Purificação de energias densas, fortalecimento espiritual, renovação de ambientes, paz e harmonia, resistência
+- **Gênero**: Masculino
+- **Observações**: Usada para limpar energias densas e renovar ambientes, trazendo paz e harmonia
+
+### Pau d'Arco (Handroanthus serratifolius)
+- **Regência Planetária**: Sol (força vital, purificação, proteção)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Fortalecimento do corpo e espírito, purificação profunda, proteção contra doenças espirituais, vitalidade, desintoxicação energética
+- **Gênero**: Masculino
+- **Observações**: Propriedades místicas que fortalecem corpo e espírito, usado tradicionalmente na medicina sul-americana
+
+### Erva de Santa Maria (Chenopodium ambrosioides)
+- **Regência Planetária**: Lua (proteção maternal, purificação, limpeza)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Proteção contra mal vento e espíritos malignos, purificação, limpeza de parasitas espirituais, proteção maternal
+- **Gênero**: Feminino
+- **Observações**: Usada na cultura indígena para proteção contra espíritos malignos e mal vento
+
+### Fedegoso (Senna occidentalis)
+- **Regência Planetária**: Marte (proteção, limpeza, força)
+- **Temperatura**: Quente
+- **Usos Mágicos**: Proteção e fortalecimento espiritual, afastar energias negativas, purificação do ambiente, banhos de descarrego, neutralizar influências negativas
+- **Gênero**: Masculino
+- **Observações**: Tradicionalmente usado em banhos de descarrego para neutralizar influências negativas
+
+### Pata de Vaca (Bauhinia forficata)
+- **Regência Planetária**: Vênus (equilíbrio, harmonia, cura suave)
+- **Temperatura**: Fria
+- **Usos Mágicos**: Equilíbrio emocional, harmonia, cura suave, estabilização de energias, paz interior, redução de conflitos
+- **Gênero**: Feminino
+- **Observações**: Planta de equilíbrio e harmonia, usada para estabilizar energias e promover paz
+
+### Outras Ervas Brasileiras Adicionais
+
+#### Ipê Roxo (Handroanthus impetiginosus)
+- **Regência Planetária**: Júpiter (sabedoria, proteção, longevidade)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Sabedoria ancestral, proteção espiritual, longevidade, força interior, conexão com a natureza
+- **Gênero**: Masculino
+
+#### Embaúba (Cecropia pachystachya)
+- **Regência Planetária**: Lua (respiração espiritual, limpeza, purificação)
+- **Temperatura**: Fria
+- **Usos Mágicos**: Limpeza dos pulmões espirituais, purificação do ar energético, respiração consciente, clareza mental
+- **Gênero**: Feminino
+
+#### Cajueiro (Anacardium occidentale)
+- **Regência Planetária**: Sol (abundância, prosperidade, vitalidade)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Abundância, prosperidade, vitalidade, força, proteção contra escassez
+- **Gênero**: Masculino
+
+#### Pitanga (Eugenia uniflora)
+- **Regência Planetária**: Vênus (amor, doçura, harmonia familiar)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Amor familiar, doçura nas relações, harmonia doméstica, proteção da casa, união
+- **Gênero**: Feminino
+
+#### Maracujá (Passiflora edulis)
+- **Regência Planetária**: Lua (calma, sono, paz)
+- **Temperatura**: Fria
+- **Usos Mágicos**: Calma profunda, sono reparador, paz interior, redução de ansiedade, tranquilidade
+- **Gênero**: Feminino
+
+#### Erva Baleeira (Cordia verbenacea)
+- **Regência Planetária**: Mercúrio (comunicação, cura, flexibilidade)
+- **Temperatura**: Morna
+- **Usos Mágicos**: Cura de conflitos, comunicação harmoniosa, flexibilidade mental, adaptação, resolução de problemas
+- **Gênero**: Feminino
+
+## Resumo da Segunda Expansão por Regência Planetária
+
+### Sol
+- Pau d'Arco
+- Cajueiro
+
+### Lua
+- Erva de Santa Maria
+- Embaúba
+- Maracujá
+
+### Marte
+- Fedegoso
+
+### Vênus
+- Pata de Vaca
+- Pitanga
+
+### Mercúrio
+- Erva Baleeira
+
+### Júpiter
+- Sucupira
+- Ipê Roxo
+
+### Saturno
+- Barbatimão
+
+## Total de Novas Ervas Adicionadas
+- **Primeira Expansão**: 10 ervas
+- **Segunda Expansão**: 12 ervas
+- **Total**: 22 novas ervas brasileiras tradicionais
+
+## Status da Expansão
+✅ Pesquisa de mais ervas brasileiras concluída
+✅ Classificação por regências planetárias atualizada
+✅ Definição de temperaturas e usos mágicos expandida
+🔄 Próximo: Implementação das novas ervas no código
+
