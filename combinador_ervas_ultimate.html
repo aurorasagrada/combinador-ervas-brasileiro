@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Combinador Mágicko de Ervas - Versão ULTIMATE (274+ Plantas)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --cor-primaria: #770543;
+        --cor-secundaria: #0e1732;
+        --cor-destaque: #e4bd50;
+        --cor-suave: #b2d1b1;
+        --cor-texto: #ffffff;
+        --cor-fundo: #1a1a1a;
+        --cor-alerta: #ff6b6b;
+        --cor-morna: #ffb84d;
+        --cor-fria: #4dc3ff;
+    }
+
+    body {
+      font-family: 'Alice', serif;
+      color: var(--cor-texto);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+    }
+
+    .container {
+        background: rgba(14, 23, 50, 0.85);
+        border: 2px solid var(--cor-destaque);
+        border-radius: 12px;
+        padding: 30px;
+        width: 100%;
+        max-width: 600px;
+        box-shadow: 0 0 25px rgba(228, 189, 80, 0.3);
+        backdrop-filter: blur(10px);
+        text-align: center;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--cor-destaque);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .versao {
+      color: var(--cor-suave);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .contador-ervas {
+      color: var(--cor-destaque);
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        color: var(--cor-suave);
+    }
+
+    select, button {
+      font-family: 'Alice', serif;
+      font-size: 1rem;
+      padding: 12px 15px;
+      margin: 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(228, 189, 80, 0.5);
+      background-color: rgba(119, 5, 67, 0.3);
+      color: var(--cor-texto);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    select:hover, button:hover {
+        border-color: var(--cor-destaque);
+        background-color: rgba(119, 5, 67, 0.5);
+    }
+
+    button {
+        background-color: var(--cor-destaque);
+        color: var(--cor-primaria);
+        font-weight: bold;
+        border: none;
+        margin-top: 20px;
+        width: calc(100% - 16px);
+    }
+
+    button:hover {
+        background-color: var(--cor-suave);
+        transform: scale(1.02);
+    }
+
+    #ervasSelects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .resultado {
+      background-color: rgba(14, 23, 50, 0.9);
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 30px;
+      border: 1px solid rgba(228, 189, 80, 0.4);
+      text-align: left;
+      line-height: 1.6;
+    }
+    .resultado h2 {
+        font-family: 'Cinzel Decorative', serif;
+        color: var(--cor-destaque);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .resultado p {
+        margin-bottom: 12px;
+    }
+    .resultado strong {
+        color: var(--cor-suave);
+    }
+
+    .quente { color: var(--cor-alerta); font-weight: bold; }
+    .morna { color: var(--cor-morna); font-weight: bold; }
+    .fria { color: var(--cor-fria); font-weight: bold; }
+
+    .conflito {
+        background-color: rgba(255, 107, 107, 0.15);
+        border-left: 3px solid var(--cor-alerta);
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 10px 0;
+    }
+    .sem-conflito {
+        color: var(--cor-favoravel, #51cf66);
+    }
+
+    .dica-banho {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px dashed rgba(228, 189, 80, 0.3);
+    }
+    .dica-banho h3 {
+        font-family: 'Cinzel Decorative', serif;
+        color: var(--cor-suave);
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+    .dica-banho p {
+        font-size: 0.9rem;
+        font-style: italic;
+        color: #b2d1b1;
+    }
+
+    .regencias-planetarias {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed rgba(228, 189, 80, 0.3);
+    }
+
+    .regencias-planetarias h3 {
+        font-family: 'Cinzel Decorative', serif;
+        color: var(--cor-destaque);
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .planeta-info {
+        background: rgba(119, 5, 67, 0.2);
+        padding: 8px;
+        border-radius: 6px;
+        margin: 8px 0;
+        border-left: 3px solid var(--cor-destaque);
+    }
+
+    .conflito-detalhado {
+        background-color: rgba(255, 107, 107, 0.2);
+        border: 1px solid var(--cor-alerta);
+        padding: 12px;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+
+    .conflito-detalhado h4 {
+        color: var(--cor-alerta);
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .neutralizacao {
+        background: rgba(178, 209, 177, 0.2);
+        padding: 8px;
+        border-radius: 6px;
+        margin-top: 8px;
+        border-left: 3px solid var(--cor-suave);
+    }
+
+    .nova-erva {
+        background: rgba(228, 189, 80, 0.1);
+        border-left: 3px solid var(--cor-destaque);
+        padding-left: 5px;
+    }
+
+    .erva-brasileira {
+        color: #51cf66;
+        font-weight: bold;
+    }
+
+    .erva-europeia {
+        color: #9775fa;
+        font-weight: bold;
+    }
+
+    .erva-cunningham {
+        color: #ffd43b;
+        font-weight: bold;
+    }
+
+    .erva-chinesa {
+        color: #ff6b6b;
+        font-weight: bold;
+    }
+
+    .erva-ayurvedica {
+        color: #ff922b;
+        font-weight: bold;
+    }
+
+    .erva-africana {
+        color: #8ce99a;
+        font-weight: bold;
+    }
+
+    .erva-indigena {
+        color: #74c0fc;
+        font-weight: bold;
+    }
+
+    .erva-asiatica {
+        color: #d0bfff;
+        font-weight: bold;
+    }
+
+    .erva-tambor-mina {
+        color: #ffa8a8;
+        font-weight: bold;
+    }
+
+    .erva-batuque {
+        color: #a8e6cf;
+        font-weight: bold;
+    }
+
+    .erva-xango {
+        color: #ffb3ba;
+        font-weight: bold;
+    }
+
+    .erva-cabula {
+        color: #bae1ff;
+        font-weight: bold;
+    }
+
+    .erva-encantaria {
+        color: #ffffba;
+        font-weight: bold;
+    }
+
+    .erva-jurema {
+        color: #e6ccff;
+        font-weight: bold;
+    }
+
+    .erva-candomble {
+        color: #ffcc99;
+        font-weight: bold;
+    }
+
+    .erva-umbanda {
+        color: #ccffcc;
+        font-weight: bold;
+    }
+
+    .erva-cascas {
+        color: #d4a574;
+        font-weight: bold;
+    }
+
+    .erva-mundial {
+        color: #87ceeb;
+        font-weight: bold;
+    }
+
+    .tradicoes-info {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed rgba(228, 189, 80, 0.3);
+    }
+
+    .tradicoes-info h3 {
+        font-family: 'Cinzel Decorative', serif;
+        color: var(--cor-destaque);
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    .tradicao-item {
+        background: rgba(119, 5, 67, 0.2);
+        padding: 6px;
+        border-radius: 4px;
+        margin: 6px 0;
+        border-left: 3px solid var(--cor-destaque);
+        font-size: 0.9rem;
+    }
+
+    /* Media Query para dispositivos móveis */
+@media (max-width: 768px) {
+  body {
+    padding: 8px;
+  }
+  
+  .container {
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  select, button {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    margin: 6px;
+  }
+  
+  button {
+    width: calc(100% - 12px);
+  }
+  
+  .resultado {
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .resultado h2 {
+    font-size: 1.3rem;
+  }
+  
+  .dica-banho h3,
+  .regencias-planetarias h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Media Query para telas muito pequenas */
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+  
+  .container {
+    padding: 12px;
+  }
+  
+  h1 {
+    font-size: 1.4rem;
+  }
+  
+  select, button {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Combinador Mágicko de Ervas</h1>
+    <div class="versao">Versão ULTIMATE - Tradições Mundiais + Cascas Sagradas</div>
+    <div class="contador-ervas">🌍 Agora com 274+ ervas e cascas de tradições sagradas de todo o mundo! 🌿</div>
+
+    <label for="quantidade">Quantas ervas deseja combinar?</label>
+    <select id="quantidade" onchange="gerarSelects()">
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select>
+
+    <div id="ervasSelects"></div>
+    <button onclick="analisarCombinacao()">Analisar Combinação</button>
+
+    <div class="resultado" id="resultado" style="display: none;"></div>
+  </div>
+
+  <script>
+   const ervas = {
+  // ERVAS SOLARES
+  "Girassol": {planeta: "Sol", temperatura: "morna", usos: ["Liderança", "Autoridade", "Sucesso profissional", "Vitalidade", "Proteção psíquica"], genero: "masculino"},
+  "Louro": {planeta: "Sol", temperatura: "morna", usos: ["Vitória", "Proteção psíquica", "Dons proféticos", "Purificação", "Honra"], genero: "masculino"},
+  "Canela": {planeta: "Sol", temperatura: "morna", usos: ["Acelerar feitiços", "Prosperidade", "Paixão", "Proteção", "Sucesso"], genero: "masculino"},
+  "Alecrim": {planeta: "Sol", temperatura: "morna", usos: ["Limpeza", "Memória", "Foco", "Purificação", "Proteção"], genero: "masculino"},
+  "Calêndula": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Sonhos proféticos", "Sucesso legal", "Vitalidade"], genero: "feminino"},
+  "Hipérico": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Banimento", "Força", "Coragem", "Saúde"], genero: "masculino"},
+  "Angélica": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Exorcismo", "Visões", "Purificação"], genero: "masculino"},
+  "Mirra": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Exorcismo", "Purificação", "Espiritualidade"], genero: "feminino"},
+  "Olíbano": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Exorcismo", "Purificação", "Consagração", "Meditação"], genero: "masculino"},
+  "Copaíba": {planeta: "Sol", temperatura: "morna", usos: ["Cura profunda", "Purificação", "Proteção", "Cicatrização espiritual"], genero: "masculino", tipo: "brasileira"},
+  "Pau d'Arco": {planeta: "Sol", temperatura: "morna", usos: ["Fortalecimento do corpo e espírito", "Purificação profunda", "Proteção contra doenças espirituais", "Vitalidade", "Desintoxicação energética"], genero: "masculino", tipo: "brasileira"},
+  "Cajueiro": {planeta: "Sol", temperatura: "morna", usos: ["Abundância", "Prosperidade", "Vitalidade", "Força", "Proteção contra escassez"], genero: "masculino", tipo: "brasileira"},
+  "Ipê": {planeta: "Sol", temperatura: "morna", usos: ["Força", "Resistência", "Proteção espiritual", "Longevidade"], genero: "masculino", tipo: "brasileira"},
+  "Cumaru": {planeta: "Sol", temperatura: "morna", usos: ["Sorte", "Proteção", "Amor", "Prosperidade", "Força espiritual"], genero: "masculino", tipo: "brasileira"},
+  "Junípero": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Anti-roubo", "Amor", "Exorcismo", "Saúde"], genero: "masculino", tipo: "cunningham"},
+  "Ginseng": {planeta: "Sol", temperatura: "morna", usos: ["Vitalidade extrema", "Longevidade", "Energia vital", "Força interior", "Resistência"], genero: "masculino", tipo: "chinesa"},
+  "Ashwagandha": {planeta: "Sol", temperatura: "morna", usos: ["Força vital", "Resistência ao stress", "Vitalidade", "Energia adaptogênica"], genero: "masculino", tipo: "ayurvedica"},
+  "Cúrcuma": {planeta: "Sol", temperatura: "morna", usos: ["Purificação dourada", "Proteção solar", "Cura profunda", "Força vital"], genero: "feminino", tipo: "ayurvedica"},
+  "Impepho": {planeta: "Sol", temperatura: "morna", usos: ["Conexão com ancestrais", "Proteção espiritual", "Purificação", "Comunicação com espíritos"], genero: "masculino", tipo: "africana"},
+  "Palo Santo": {planeta: "Sol", temperatura: "morna", usos: ["Purificação", "Proteção", "Elevação espiritual", "Limpeza energética", "Conexão divina"], genero: "masculino", tipo: "indigena"},
+  "Visco": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Amor", "Fertilidade", "Sorte", "Paz", "Reconciliação"], genero: "masculino", tipo: "europeia"},
+  "Crisântemo": {planeta: "Sol", temperatura: "morna", usos: ["Longevidade", "Proteção", "Alegria", "Honra", "Respeito aos ancestrais"], genero: "masculino", tipo: "asiatica"},
+  // NOVAS PLANTAS SOLARES DAS TRADIÇÕES REGIONAIS
+  "Folha de Dendê": {planeta: "Sol", temperatura: "morna", usos: ["Força vital", "Prosperidade", "Abundância", "Energia solar", "Vitalidade"], genero: "masculino", tipo: "xango"},
+  "Marcela": {planeta: "Sol", temperatura: "morna", usos: ["Vitalidade", "Força solar", "Proteção", "Cura", "Energia vital"], genero: "masculino", tipo: "batuque"},
+  "Erva de São João": {planeta: "Sol", temperatura: "morna", usos: ["Proteção solar", "Força vital", "Coragem", "Vitalidade", "Energia masculina"], genero: "masculino", tipo: "encantaria"},
+  "Folha de Ouro": {planeta: "Sol", temperatura: "morna", usos: ["Prosperidade", "Riqueza", "Abundância material", "Sucesso financeiro"], genero: "masculino", tipo: "encantaria"},
+  // NOVAS PLANTAS SOLARES DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Marmeleiro": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Força solar", "Resistência", "Vitalidade"], genero: "masculino", tipo: "jurema"},
+  "Dendezeiro": {planeta: "Sol", temperatura: "morna", usos: ["Força vital", "Prosperidade", "Abundância", "Energia de Exú"], genero: "masculino", tipo: "candomble"},
+  "Folha de Caju": {planeta: "Sol", temperatura: "morna", usos: ["Força", "Vitalidade", "Abundância", "Energia de Xangô"], genero: "masculino", tipo: "candomble"},
+  "Folha de Laranja": {planeta: "Sol", temperatura: "morna", usos: ["Alegria", "Prosperidade", "Energia solar", "Vitalidade"], genero: "masculino", tipo: "candomble"},
+  "Folha de Louro": {planeta: "Sol", temperatura: "morna", usos: ["Vitória", "Proteção", "Sucesso", "Força dos caboclos"], genero: "masculino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS SOLARES
+  "Casca de Ipê Roxo": {planeta: "Sol", temperatura: "morna", usos: ["Vitalidade", "Força solar", "Proteção contra doenças", "Energia vital"], genero: "masculino", tipo: "cascas"},
+  "Casca de Pau d'Arco": {planeta: "Sol", temperatura: "morna", usos: ["Purificação profunda", "Fortalecimento", "Proteção", "Vitalidade"], genero: "masculino", tipo: "cascas"},
+  "Casca de Canela-de-Sassafrás": {planeta: "Sol", temperatura: "morna", usos: ["Prosperidade", "Atração", "Energia solar", "Abundância"], genero: "masculino", tipo: "cascas"},
+  "Casca de Canela": {planeta: "Sol", temperatura: "morna", usos: ["Prosperidade", "Paixão", "Acelerar feitiços", "Sucesso"], genero: "masculino", tipo: "cascas"},
+  "Alecrim-do-campo": {planeta: "Sol", temperatura: "morna", usos: ["Limpeza", "Proteção", "Vitalidade", "Purificação"], genero: "masculino", tipo: "mundial"},
+  "Zimbro": {planeta: "Sol", temperatura: "morna", usos: ["Proteção", "Purificação", "Exorcismo", "Força"], genero: "masculino", tipo: "mundial"},
+  "Yerba Santa": {planeta: "Sol", temperatura: "morna", usos: ["Purificação", "Proteção", "Cura respiratória", "Força"], genero: "masculino", tipo: "mundial"},
+  "Banksia": {planeta: "Sol", temperatura: "morna", usos: ["Força", "Resistência", "Proteção", "Vitalidade"], genero: "masculino", tipo: "mundial"},
+
+  // ERVAS LUNARES
+  "Artemísia": {planeta: "Lua", temperatura: "morna", usos: ["Intuição", "Viagens astrais", "Sonhos proféticos", "Proteção psíquica", "Clarividência"], genero: "feminino"},
+  "Jasmim": {planeta: "Lua", temperatura: "morna", usos: ["Amor", "Dons psíquicos", "Feminino sagrado", "Atração", "Sonhos de amor"], genero: "feminino"},
+  "Sálvia Branca": {planeta: "Lua", temperatura: "morna", usos: ["Purificação", "Proteção", "Ancestrais", "Limpeza energética", "Consagração"], genero: "feminino"},
+  "Jurema": {planeta: "Lua", temperatura: "morna", usos: ["Comunicação espiritual", "Expansão da consciência", "Limpeza energética", "Renovação espiritual", "Visões proféticas"], genero: "feminino", tipo: "brasileira"},
+  "Jurema-preta": {planeta: "Lua", temperatura: "morna", usos: ["Comunicação com mestres espirituais", "Expansão da consciência", "Visões sagradas", "Cura espiritual profunda"], genero: "feminino", tipo: "brasileira"},
+  "Erva de Santa Maria": {planeta: "Lua", temperatura: "morna", usos: ["Proteção contra mal vento", "Proteção contra espíritos malignos", "Purificação", "Limpeza de parasitas espirituais", "Proteção maternal"], genero: "feminino", tipo: "brasileira"},
+  "Artemísia Comum": {planeta: "Lua", temperatura: "fria", usos: ["Sonhos proféticos", "Proteção psíquica", "Adivinhação", "Purificação", "Banimento"], genero: "feminino", tipo: "europeia"},
+  "Camomila": {planeta: "Lua", temperatura: "fria", usos: ["Calma", "Sono", "Amor suave", "Paz"], genero: "feminino"},
+  "Melissa": {planeta: "Lua", temperatura: "fria", usos: ["Amor", "Sucesso", "Desenvolvimento psíquico", "Purificação"], genero: "feminino"},
+  "Salgueiro": {planeta: "Lua", temperatura: "fria", usos: ["Proteção", "Amor", "Adivinhação", "Encantamentos"], genero: "feminino"},
+  "Macassá": {planeta: "Lua", temperatura: "fria", usos: ["Purificação", "Proteção", "Limpeza", "Paz", "Harmonia"], genero: "feminino", tipo: "brasileira"},
+  "Sândalo": {planeta: "Lua", temperatura: "fria", usos: ["Proteção", "Desejos", "Exorcismo", "Espiritualidade"], genero: "feminino"},
+  "Capim-Santo": {planeta: "Lua", temperatura: "fria", usos: ["Calma mental", "Afastar energias negativas", "Equilíbrio emocional", "Amor", "Intuição", "Abertura de caminhos"], genero: "feminino", tipo: "brasileira"},
+  "Embaúba": {planeta: "Lua", temperatura: "fria", usos: ["Limpeza dos pulmões espirituais", "Purificação do ar energético", "Respiração consciente", "Clareza mental"], genero: "feminino", tipo: "brasileira"},
+  "Maracujá": {planeta: "Lua", temperatura: "fria", usos: ["Calma profunda", "Sono reparador", "Paz interior", "Redução de ansiedade", "Tranquilidade"], genero: "feminino", tipo: "brasileira"},
+  "Mulungu": {planeta: "Lua", temperatura: "fria", usos: ["Serenidade", "Reconciliação", "Acalmar conflitos", "Paz interior", "Calmaria"], genero: "feminino", tipo: "brasileira"},
+  "Malva-do-reino": {planeta: "Lua", temperatura: "fria", usos: ["Cura emocional", "Suavização de conflitos", "Amor maternal", "Paz interior"], genero: "feminino", tipo: "brasileira"},
+  "Sucuuba": {planeta: "Lua", temperatura: "fria", usos: ["Proteção feminina", "Cura ginecológica", "Força da mulher", "Fertilidade"], genero: "feminino", tipo: "brasileira"},
+  "Papoula": {planeta: "Lua", temperatura: "fria", usos: ["Fertilidade", "Amor", "Sono", "Dinheiro", "Sorte", "Invisibilidade"], genero: "feminino", tipo: "cunningham"},
+  "Brahmi": {planeta: "Lua", temperatura: "fria", usos: ["Memória espiritual", "Clareza mental", "Conexão psíquica", "Sabedoria interior"], genero: "feminino", tipo: "ayurvedica"},
+  "Kanna": {planeta: "Lua", temperatura: "fria", usos: ["Calma profunda", "Paz interior", "Equilíbrio emocional", "Conexão espiritual", "Meditação"], genero: "feminino", tipo: "africana"},
+  "Lótus": {planeta: "Lua", temperatura: "fria", usos: ["Pureza espiritual", "Iluminação", "Elevação espiritual", "Proteção", "Paz interior"], genero: "feminino", tipo: "asiatica"},
+  // NOVAS PLANTAS LUNARES DAS TRADIÇÕES REGIONAIS
+  "Cajazeira Sagrada": {planeta: "Lua", temperatura: "fria", usos: ["Comunicação com voduns", "Purificação espiritual", "Oferendas sagradas", "Conexão ancestral"], genero: "feminino", tipo: "tambor-mina"},
+  "Erva de Santa Luzia": {planeta: "Lua", temperatura: "fria", usos: ["Clarividência", "Visão espiritual", "Proteção dos olhos", "Intuição", "Percepção"], genero: "feminino", tipo: "xango"},
+  "Folha de Jambo": {planeta: "Lua", temperatura: "fria", usos: ["Purificação suave", "Limpeza emocional", "Renovação", "Frescor espiritual"], genero: "feminino", tipo: "cabula"},
+  "Mucuracaá": {planeta: "Lua", temperatura: "fria", usos: ["Comunicação com encantados", "Visões", "Proteção psíquica", "Limpeza energética"], genero: "feminino", tipo: "encantaria"},
+  // NOVAS PLANTAS LUNARES DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Jurema-vermelha": {planeta: "Lua", temperatura: "fria", usos: ["Visões sagradas", "Comunicação com mestres", "Expansão da consciência", "Cura espiritual"], genero: "feminino", tipo: "jurema"},
+  "Jurema-de-caboclo": {planeta: "Lua", temperatura: "morna", usos: ["Força dos caboclos", "Proteção da mata", "Comunicação com espíritos da natureza"], genero: "feminino", tipo: "jurema"},
+  "Folha de Algodão": {planeta: "Lua", temperatura: "fria", usos: ["Pureza", "Paz", "Proteção de Oxalá", "Limpeza espiritual"], genero: "feminino", tipo: "candomble"},
+  "Erva Cidreira": {planeta: "Lua", temperatura: "fria", usos: ["Calma", "Amor suave", "Paz interior", "Energia de Oxum"], genero: "feminino", tipo: "candomble"},
+  "Samambaia": {planeta: "Lua", temperatura: "fria", usos: ["Proteção", "Mistério", "Força dos caboclos", "Conexão com a mata"], genero: "feminino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS LUNARES
+  "Casca de Salgueiro": {planeta: "Lua", temperatura: "fria", usos: ["Cura emocional", "Flexibilidade", "Adaptação", "Proteção lunar"], genero: "feminino", tipo: "cascas"},
+  "Kanna Branca": {planeta: "Lua", temperatura: "fria", usos: ["Paz interior", "Calma", "Equilíbrio emocional", "Meditação"], genero: "feminino", tipo: "mundial"},
+  "Uva Ursi": {planeta: "Lua", temperatura: "fria", usos: ["Purificação", "Proteção psíquica", "Limpeza energética"], genero: "feminino", tipo: "mundial"},
+  "Passiflora": {planeta: "Lua", temperatura: "fria", usos: ["Paz interior", "Calma", "Sono tranquilo", "Serenidade"], genero: "feminino", tipo: "mundial"},
+  "Lemon Balm": {planeta: "Lua", temperatura: "fria", usos: ["Alegria suave", "Calma", "Amor", "Paz interior"], genero: "feminino", tipo: "mundial"},
+
+  // ERVAS DE MARTE
+  "Alho": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Banimento", "Quebrar maldições", "Coragem", "Exorcismo"], genero: "masculino"},
+  "Pimenta Vermelha": {planeta: "Marte", temperatura: "morna", usos: ["Acelerar resultados", "Proteção", "Paixão", "Quebrar bloqueios", "Força"], genero: "masculino"},
+  "Urtiga": {planeta: "Marte", temperatura: "morna", usos: ["Proteção extrema", "Justiça", "Força", "Quebrar maldições", "Coragem"], genero: "masculino"},
+  "Manjericão": {planeta: "Marte", temperatura: "morna", usos: ["Afastar mal", "Proteção", "Coragem", "Prosperidade", "Amor"], genero: "masculino"},
+  "Estragão": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Força", "Coragem", "Banimento", "Limpeza"], genero: "masculino"},
+  "Catuaba": {planeta: "Marte", temperatura: "morna", usos: ["Vitalidade", "Força sexual", "Estimulação nervosa", "Coragem", "Energia vital"], genero: "masculino", tipo: "brasileira"},
+  "Fáfia": {planeta: "Marte", temperatura: "morna", usos: ["Força física", "Vitalidade", "Resistência", "Energia sexual", "Longevidade"], genero: "masculino", tipo: "brasileira"},
+  "Angico": {planeta: "Marte", temperatura: "morna", usos: ["Força espiritual", "Conexão ancestral", "Proteção", "Resistência"], genero: "masculino", tipo: "brasileira"},
+  "Mandacaru": {planeta: "Marte", temperatura: "quente", usos: ["Força em tempos de escassez", "Resistência extrema", "Proteção contra adversidades", "Sobrevivência"], genero: "masculino", tipo: "brasileira"},
+  "Catingueira": {planeta: "Marte", temperatura: "morna", usos: ["Proteção contra adversidades", "Força interior", "Resistência", "Adaptabilidade"], genero: "masculino", tipo: "brasileira"},
+  "Sangra d'água": {planeta: "Marte", temperatura: "quente", usos: ["Proteção extrema", "Força", "Banimento", "Limpeza profunda"], genero: "masculino", tipo: "brasileira"},
+  "Tabaco Sagrado": {planeta: "Marte", temperatura: "quente", usos: ["Oferenda aos espíritos", "Proteção", "Comunicação espiritual", "Purificação", "Força"], genero: "masculino", tipo: "indigena"},
+  "Cominho": {planeta: "Marte", temperatura: "quente", usos: ["Proteção", "Fidelidade", "Exorcismo", "Anti-roubo", "Paz"], genero: "masculino", tipo: "cunningham"},
+  "Lúpulo": {planeta: "Marte", temperatura: "morna", usos: ["Cura", "Sono", "Adivinhação", "Sonhos proféticos"], genero: "masculino", tipo: "cunningham"},
+  "Arruda": {planeta: "Marte", temperatura: "quente", usos: ["Quebra de feitiços", "Limpeza profunda", "Proteção", "Banimento"], genero: "masculino"},
+  "Espada de Ogum": {planeta: "Marte", temperatura: "quente", usos: ["Proteção extrema", "Corte de demandas", "Força", "Coragem", "Vitória"], genero: "masculino", tipo: "brasileira"},
+  "Lança de Ogum": {planeta: "Marte", temperatura: "quente", usos: ["Proteção militar", "Força guerreira", "Coragem em batalhas", "Defesa"], genero: "masculino", tipo: "brasileira"},
+  "Guiné": {planeta: "Marte", temperatura: "quente", usos: ["Proteção", "Limpeza", "Afastar negatividade", "Força", "Banimento"], genero: "masculino", tipo: "brasileira"},
+  "Peregum": {planeta: "Marte", temperatura: "quente", usos: ["Proteção", "Limpeza", "Banimento", "Força espiritual", "Defesa"], genero: "masculino", tipo: "brasileira"},
+  "Aroeira": {planeta: "Marte", temperatura: "quente", usos: ["Proteção", "Limpeza", "Banimento", "Força"], genero: "masculino", tipo: "brasileira"},
+  "Carqueja": {planeta: "Marte", temperatura: "quente", usos: ["Proteção contra inveja", "Eliminação de energias negativas", "Purificação de sentimentos", "Combate a medos"], genero: "masculino", tipo: "brasileira"},
+  "Pimenta-malagueta": {planeta: "Marte", temperatura: "quente", usos: ["Força extrema", "Proteção", "Quebra de feitiços", "Defesa espiritual"], genero: "masculino", tipo: "brasileira"},
+  "Comigo-ninguém-pode": {planeta: "Marte", temperatura: "quente", usos: ["Proteção extrema", "Defesa total", "Quebra de feitiços", "Força invencível"], genero: "masculino", tipo: "brasileira"},
+  // NOVAS PLANTAS DE MARTE DAS TRADIÇÕES REGIONAIS
+  "Folha de Tabaco Maranhense": {planeta: "Marte", temperatura: "quente", usos: ["Oferendas aos voduns", "Comunicação espiritual", "Proteção", "Força espiritual"], genero: "masculino", tipo: "tambor-mina"},
+  "Folha de Fogo": {planeta: "Marte", temperatura: "quente", usos: ["Força extrema", "Proteção guerreira", "Banimento poderoso", "Limpeza intensa"], genero: "masculino", tipo: "tambor-mina"},
+  "Erva de Bicho": {planeta: "Marte", temperatura: "quente", usos: ["Proteção contra pragas espirituais", "Limpeza de parasitas energéticos", "Força defensiva"], genero: "masculino", tipo: "batuque"},
+  "Aroeira Vermelha": {planeta: "Marte", temperatura: "quente", usos: ["Proteção extrema", "Força guerreira", "Banimento poderoso", "Limpeza intensa"], genero: "masculino", tipo: "cabula"},
+  // NOVAS PLANTAS DE MARTE DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Angico-de-bezerro": {planeta: "Marte", temperatura: "quente", usos: ["Força espiritual", "Resistência", "Proteção", "Comunicação com ancestrais"], genero: "masculino", tipo: "jurema"},
+  "Espada-de-São-Jorge": {planeta: "Marte", temperatura: "quente", usos: ["Proteção extrema", "Corte de demandas", "Força de Ogum", "Defesa total"], genero: "masculino", tipo: "candomble"},
+  "Lança-de-Ogum": {planeta: "Marte", temperatura: "quente", usos: ["Força guerreira", "Proteção militar", "Energia de Ogum", "Coragem em batalhas"], genero: "masculino", tipo: "candomble"},
+  "Folha de Manjericão": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Amor", "Energia de Iemanjá", "Afastar mal"], genero: "masculino", tipo: "candomble"},
+  "Folha de Mamão-macho": {planeta: "Marte", temperatura: "quente", usos: ["Força feminina", "Transformação", "Energia de Iansã", "Poder da mulher"], genero: "masculino", tipo: "candomble"},
+  "Palma-de-santa-rita": {planeta: "Marte", temperatura: "quente", usos: ["Força", "Coragem feminina", "Energia de Iansã", "Proteção guerreira"], genero: "masculino", tipo: "candomble"},
+  "Folha de Fumo": {planeta: "Marte", temperatura: "quente", usos: ["Oferenda", "Comunicação espiritual", "Força dos pretos-velhos", "Proteção"], genero: "masculino", tipo: "umbanda"},
+  "Vence-tudo": {planeta: "Marte", temperatura: "quente", usos: ["Vitória", "Superação de obstáculos", "Força", "Coragem"], genero: "masculino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS DE MARTE
+  "Casca de Angico": {planeta: "Marte", temperatura: "morna", usos: ["Força espiritual", "Resistência", "Comunicação com ancestrais", "Proteção"], genero: "masculino", tipo: "cascas"},
+  "Casca de Aroeira": {planeta: "Marte", temperatura: "quente", usos: ["Proteção extrema", "Limpeza energética", "Banimento", "Força"], genero: "masculino", tipo: "cascas"},
+  "Casca de Cássia": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Força", "Banimento", "Limpeza"], genero: "masculino", tipo: "cascas"},
+  "Tomilho": {planeta: "Marte", temperatura: "morna", usos: ["Coragem", "Força", "Vigor", "Alegria", "Proteção"], genero: "masculino", tipo: "mundial"},
+  "Orégano": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Alegria", "Força", "Banimento", "Vitalidade"], genero: "masculino", tipo: "mundial"},
+  "Pinheiro": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Força", "Purificação", "Resistência"], genero: "masculino", tipo: "mundial"},
+  "Rhodiola": {planeta: "Marte", temperatura: "morna", usos: ["Resistência", "Força", "Adaptação", "Vitalidade"], genero: "masculino", tipo: "mundial"},
+  "Dagga Selvagem": {planeta: "Marte", temperatura: "morna", usos: ["Força", "Coragem", "Proteção", "Energia vital"], genero: "masculino", tipo: "mundial"},
+  "Osha": {planeta: "Marte", temperatura: "morna", usos: ["Proteção", "Força", "Purificação", "Resistência"], genero: "masculino", tipo: "mundial"},
+  "Muira Puama": {planeta: "Marte", temperatura: "morna", usos: ["Força vital", "Energia sexual", "Coragem", "Vitalidade"], genero: "masculino", tipo: "mundial"},
+  "Catuaba Verdadeira": {planeta: "Marte", temperatura: "morna", usos: ["Vitalidade", "Força", "Energia", "Resistência"], genero: "masculino", tipo: "mundial"},
+  "Galanga": {planeta: "Marte", temperatura: "quente", usos: ["Proteção", "Força", "Vitória em disputas", "Poder"], genero: "masculino", tipo: "mundial"},
+
+  // ERVAS DE VÊNUS
+  "Rosa": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Beleza", "Harmonia", "Paz", "Atração"], genero: "feminino"},
+  "Lavanda": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Paz", "Felicidade", "Purificação", "Calma"], genero: "feminino"},
+  "Violeta": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Sorte", "Proteção", "Desejos", "Paz"], genero: "feminino", tipo: "brasileira"},
+  "Pitanga": {planeta: "Venus", temperatura: "morna", usos: ["Amor familiar", "Doçura nas relações", "Harmonia doméstica", "Proteção da casa", "União"], genero: "feminino", tipo: "brasileira"},
+  "Colônia": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Beleza", "Harmonia", "Paz", "Atração"], genero: "feminino", tipo: "brasileira"},
+  "Folha-da-costa": {planeta: "Venus", temperatura: "fria", usos: ["Cura suave", "Proteção feminina", "Harmonia", "Amor maternal"], genero: "feminino", tipo: "brasileira"},
+  "Maçã": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Cura", "Jardim", "Imortalidade"], genero: "feminino", tipo: "cunningham"},
+  "Tulsi": {planeta: "Venus", temperatura: "fria", usos: ["Amor divino", "Proteção sagrada", "Purificação", "Devoção"], genero: "feminino", tipo: "ayurvedica"},
+  "Buchu": {planeta: "Venus", temperatura: "fria", usos: ["Purificação suave", "Proteção feminina", "Cura emocional", "Harmonia"], genero: "feminino", tipo: "africana"},
+  // NOVAS PLANTAS DE VÊNUS DAS TRADIÇÕES REGIONAIS
+  "Beri": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Harmonia familiar", "Suavização de conflitos", "Paz doméstica"], genero: "feminino", tipo: "batuque"},
+  "Folha de Bananeira": {planeta: "Venus", temperatura: "fria", usos: ["Fertilidade", "Abundância", "Amor maternal", "Proteção familiar", "Harmonia"], genero: "feminino", tipo: "xango"},
+  "Folha de Goiaba": {planeta: "Venus", temperatura: "morna", usos: ["Cura emocional", "Amor familiar", "Proteção das crianças", "Harmonia doméstica"], genero: "feminino", tipo: "cabula"},
+  // NOVAS PLANTAS DE VÊNUS DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Capim-de-oxum": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Fertilidade", "Energia de Oxum", "Doçura"], genero: "feminino", tipo: "candomble"},
+  "Folha de Abacate": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Fertilidade", "Energia de Oxum", "Abundância"], genero: "feminino", tipo: "candomble"},
+  "Folha de Cana": {planeta: "Venus", temperatura: "morna", usos: ["Doçura", "Atração", "Energia dos caboclos", "Harmonia"], genero: "feminino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS DE VÊNUS
+  "Casca de Cabreúva": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Harmonia", "Cura emocional", "Suavidade"], genero: "feminino", tipo: "cascas"},
+  "Casca de Cerejeira": {planeta: "Venus", temperatura: "fria", usos: ["Amor", "Beleza", "Renovação", "Ciclos da vida"], genero: "feminino", tipo: "cascas"},
+  "Dong Quai": {planeta: "Venus", temperatura: "fria", usos: ["Energia feminina", "Harmonia", "Cura emocional", "Fertilidade"], genero: "feminino", tipo: "mundial"},
+  "Damiana": {planeta: "Venus", temperatura: "morna", usos: ["Amor", "Paixão", "Sonhos proféticos", "Atração"], genero: "feminino", tipo: "mundial"},
+
+  // ERVAS DE MERCÚRIO
+  "Lavanda": {planeta: "Mercurio", temperatura: "fria", usos: ["Comunicação clara", "Paz mental", "Clareza de pensamento", "Purificação mental"], genero: "feminino"},
+  "Hortelã": {planeta: "Mercurio", temperatura: "fria", usos: ["Clareza mental", "Comunicação", "Viagens", "Dinheiro"], genero: "masculino"},
+  "Erva-doce": {planeta: "Mercurio", temperatura: "morna", usos: ["Proteção", "Purificação", "Juventude", "Comunicação"], genero: "masculino"},
+  "Erva Baleeira": {planeta: "Mercurio", temperatura: "morna", usos: ["Cura de conflitos", "Comunicação harmoniosa", "Flexibilidade mental", "Adaptação", "Resolução de problemas"], genero: "feminino", tipo: "brasileira"},
+  "Assa-peixe": {planeta: "Mercurio", temperatura: "morna", usos: ["Cura respiratória", "Comunicação clara", "Purificação dos pulmões", "Clareza mental"], genero: "masculino", tipo: "brasileira"},
+  "Hortelã-da-folha-miúda": {planeta: "Mercurio", temperatura: "fria", usos: ["Clareza mental", "Comunicação sutil", "Purificação mental", "Foco"], genero: "masculino", tipo: "brasileira"},
+  "Vassourinha": {planeta: "Mercurio", temperatura: "morna", usos: ["Limpeza espiritual", "Purificação de ambientes", "Comunicação clara", "Organização energética"], genero: "feminino", tipo: "brasileira"},
+  "Priprioca": {planeta: "Mercurio", temperatura: "morna", usos: ["Proteção", "Limpeza energética", "Comunicação com espíritos", "Purificação"], genero: "feminino", tipo: "brasileira"},
+  "Anis": {planeta: "Mercurio", temperatura: "morna", usos: ["Proteção", "Purificação", "Juventude", "Sonhos proféticos"], genero: "masculino", tipo: "cunningham"},
+  "Ginkgo": {planeta: "Mercurio", temperatura: "morna", usos: ["Clareza mental", "Memória", "Comunicação", "Longevidade mental"], genero: "masculino", tipo: "chinesa"},
+  "Sweetgrass": {planeta: "Mercurio", temperatura: "morna", usos: ["Comunicação com espíritos", "Purificação suave", "Chamada de bons espíritos", "Harmonia"], genero: "feminino", tipo: "indigena"},
+  // NOVAS PLANTAS DE MERCÚRIO DAS TRADIÇÕES REGIONAIS
+  "Erva de Passarinho": {planeta: "Mercurio", temperatura: "morna", usos: ["Comunicação com espíritos", "Flexibilidade espiritual", "Adaptação", "Mensagens divinas"], genero: "masculino", tipo: "tambor-mina"},
+  "Folha de Tajá": {planeta: "Mercurio", temperatura: "morna", usos: ["Comunicação espiritual", "Clareza mental", "Mensagens dos encantados"], genero: "feminino", tipo: "encantaria"},
+  "Erva Cidreira do Campo": {planeta: "Mercurio", temperatura: "fria", usos: ["Calma mental", "Comunicação clara", "Paz interior", "Clareza de pensamento"], genero: "feminino", tipo: "cabula"},
+  // NOVAS PLANTAS DE MERCÚRIO DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Velame": {planeta: "Mercurio", temperatura: "morna", usos: ["Comunicação com espíritos", "Clareza mental", "Proteção psíquica"], genero: "masculino", tipo: "jurema"},
+  "Folha de Eucalipto": {planeta: "Mercurio", temperatura: "morna", usos: ["Purificação respiratória", "Clareza", "Energia de Oxóssi", "Limpeza"], genero: "masculino", tipo: "candomble"},
+  "Alfazema": {planeta: "Mercurio", temperatura: "fria", usos: ["Paz", "Purificação mental", "Comunicação clara", "Calma"], genero: "feminino", tipo: "umbanda"},
+  "Vassourinha-de-botão": {planeta: "Mercurio", temperatura: "morna", usos: ["Limpeza espiritual", "Organização energética", "Purificação de ambientes"], genero: "feminino", tipo: "umbanda"},
+  "Tira-teima": {planeta: "Mercurio", temperatura: "morna", usos: ["Resolver conflitos", "Clareza", "Comunicação harmoniosa", "Entendimento"], genero: "masculino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS DE MERCÚRIO
+  "Manjerona": {planeta: "Mercurio", temperatura: "morna", usos: ["Comunicação", "Clareza mental", "Proteção", "Harmonia"], genero: "feminino", tipo: "mundial"},
+  "Gotu Kola": {planeta: "Mercurio", temperatura: "fria", usos: ["Clareza mental", "Memória", "Comunicação", "Sabedoria"], genero: "feminino", tipo: "mundial"},
+  "Tea Tree": {planeta: "Mercurio", temperatura: "morna", usos: ["Purificação", "Limpeza", "Clareza", "Comunicação"], genero: "masculino", tipo: "mundial"},
+  "Eucalipto Limão": {planeta: "Mercurio", temperatura: "morna", usos: ["Purificação", "Clareza mental", "Comunicação", "Limpeza"], genero: "masculino", tipo: "mundial"},
+  "Calamus": {planeta: "Mercurio", temperatura: "morna", usos: ["Poder pessoal", "Controle", "Dominação", "Comunicação"], genero: "masculino", tipo: "mundial"},
+
+  // ERVAS DE JÚPITER
+  "Sálvia": {planeta: "Jupiter", temperatura: "morna", usos: ["Sabedoria", "Proteção", "Desejos", "Purificação"], genero: "masculino"},
+  "Dente-de-leão": {planeta: "Jupiter", temperatura: "morna", usos: ["Adivinhação", "Desejos", "Comunicação espiritual"], genero: "masculino"},
+  "Cedro": {planeta: "Jupiter", temperatura: "morna", usos: ["Proteção", "Purificação", "Dinheiro", "Cura"], genero: "masculino"},
+  "Quebra-pedra": {planeta: "Jupiter", temperatura: "morna", usos: ["Quebrar obstáculos", "Proteção", "Limpeza", "Abertura de caminhos"], genero: "masculino", tipo: "brasileira"},
+  "Jatobá": {planeta: "Jupiter", temperatura: "morna", usos: ["Força física e espiritual", "Resistência", "Longevidade", "Proteção", "Cura"], genero: "masculino", tipo: "brasileira"},
+  "Folha-da-fortuna": {planeta: "Jupiter", temperatura: "morna", usos: ["Sorte", "Prosperidade", "Abundância", "Proteção contra pobreza"], genero: "feminino", tipo: "brasileira"},
+  "Umburana": {planeta: "Jupiter", temperatura: "morna", usos: ["Cura respiratória", "Proteção", "Sabedoria ancestral", "Conexão com a terra"], genero: "feminino", tipo: "brasileira"},
+  "Breu-branco": {planeta: "Jupiter", temperatura: "morna", usos: ["Purificação elevada", "Conexão com o sagrado", "Elevação espiritual", "Proteção divina"], genero: "masculino", tipo: "brasileira"},
+  "Noz-moscada": {planeta: "Jupiter", temperatura: "morna", usos: ["Sorte", "Dinheiro", "Saúde", "Fidelidade", "Clarividência"], genero: "masculino", tipo: "cunningham"},
+  "Astragalus": {planeta: "Jupiter", temperatura: "morna", usos: ["Proteção energética", "Fortalecimento do sistema", "Longevidade", "Resistência"], genero: "masculino", tipo: "chinesa"},
+  "Cedro Branco": {planeta: "Jupiter", temperatura: "morna", usos: ["Purificação sagrada", "Proteção espiritual", "Conexão com o divino", "Sabedoria"], genero: "masculino", tipo: "indigena"},
+  // NOVAS PLANTAS DE JÚPITER DAS TRADIÇÕES REGIONAIS
+  "Orô": {planeta: "Jupiter", temperatura: "morna", usos: ["Presente em todos os rituais", "Proteção universal", "Prosperidade", "Crescimento espiritual"], genero: "masculino", tipo: "batuque"},
+  "Folha de Figueira": {planeta: "Jupiter", temperatura: "morna", usos: ["Sabedoria", "Proteção", "Crescimento espiritual", "Abundância", "Prosperidade"], genero: "masculino", tipo: "xango"},
+  "Capeba": {planeta: "Jupiter", temperatura: "morna", usos: ["Proteção", "Crescimento espiritual", "Sabedoria", "Expansão da consciência"], genero: "feminino", tipo: "cabula"},
+  "Folha de Fortuna": {planeta: "Jupiter", temperatura: "morna", usos: ["Sorte", "Prosperidade", "Crescimento", "Abundância", "Multiplicação de bênçãos"], genero: "feminino", tipo: "encantaria"},
+  // NOVAS PLANTAS DE JÚPITER DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Abre-caminho": {planeta: "Jupiter", temperatura: "morna", usos: ["Abertura de caminhos", "Prosperidade", "Sorte", "Crescimento"], genero: "masculino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS DE JÚPITER
+  "Casca de Jatobá": {planeta: "Jupiter", temperatura: "morna", usos: ["Força física e espiritual", "Resistência", "Longevidade", "Proteção"], genero: "masculino", tipo: "cascas"},
+  "Casca de Carvalho": {planeta: "Jupiter", temperatura: "morna", usos: ["Força", "Proteção", "Sabedoria", "Longevidade"], genero: "masculino", tipo: "cascas"},
+  "Casca de Cedro": {planeta: "Jupiter", temperatura: "morna", usos: ["Purificação", "Proteção", "Crescimento espiritual", "Sabedoria"], genero: "masculino", tipo: "cascas"},
+  "Sutherlandia": {planeta: "Jupiter", temperatura: "morna", usos: ["Força vital", "Resistência", "Proteção", "Crescimento"], genero: "masculino", tipo: "mundial"},
+  "Suma": {planeta: "Jupiter", temperatura: "morna", usos: ["Força vital", "Resistência", "Longevidade", "Adaptação"], genero: "masculino", tipo: "mundial"},
+  "Pfaffia": {planeta: "Jupiter", temperatura: "morna", usos: ["Adaptação", "Resistência", "Força vital", "Crescimento"], genero: "masculino", tipo: "mundial"},
+
+  // ERVAS DE SATURNO
+  "Cipreste": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Cura", "Consolo", "Longevidade"], genero: "masculino"},
+  "Barba de Velho": {planeta: "Saturno", temperatura: "morna", usos: ["Sabedoria", "Proteção", "Ancestrais", "Longevidade"], genero: "masculino"},
+  "Beladona": {planeta: "Saturno", temperatura: "fria", usos: ["Viagens astrais", "Visões", "Proteção extrema", "Transformação profunda"], genero: "feminino", tipo: "europeia"},
+  "Meimendro": {planeta: "Saturno", temperatura: "fria", usos: ["Sono profundo", "Visões proféticas", "Proteção", "Banimento"], genero: "feminino", tipo: "europeia"},
+  "Verbasco": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Coragem", "Saúde", "Afastar demônios", "Substituto de tochas"], genero: "feminino", tipo: "europeia"},
+  "Patchouli": {planeta: "Saturno", temperatura: "fria", usos: ["Aterramento", "Dinheiro", "Fertilidade", "Luxúria", "Proteção"], genero: "feminino"},
+  "Boldo": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação", "Proteção", "Limpeza", "Equilíbrio"], genero: "feminino", tipo: "brasileira"},
+  "Confrei": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção durante viagens", "Dinheiro", "Segurança", "Estabilidade"], genero: "feminino"},
+  "Cavalinha": {planeta: "Saturno", temperatura: "fria", usos: ["Força", "Discriminação", "Proteção", "Resistência"], genero: "feminino"},
+  "Hera": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Fidelidade", "Casamento", "Longevidade"], genero: "feminino"},
+  "Musgo": {planeta: "Saturno", temperatura: "fria", usos: ["Sorte", "Dinheiro", "Proteção", "Aterramento", "Estabilidade"], genero: "masculino"},
+  "Espinheira-Santa": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção espiritual", "Limpeza energética", "Estabilidade emocional", "Cura do estômago"], genero: "feminino", tipo: "brasileira"},
+  "Andiroba": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Cura", "Afastar pragas espirituais"], genero: "feminino", tipo: "brasileira"},
+  "Chapéu-de-couro": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação profunda", "Limpeza energética", "Desintoxicação espiritual"], genero: "feminino", tipo: "brasileira"},
+  "Barbatimão": {planeta: "Saturno", temperatura: "fria", usos: ["Cura profunda", "Cicatrização espiritual", "Equilíbrio corpo-mente-alma", "Consagração de instrumentos mágicos", "Conexão ancestral"], genero: "masculino", tipo: "brasileira"},
+  "Jurema-branca": {planeta: "Saturno", temperatura: "fria", usos: ["Visões ancestrais", "Conexão com os antigos", "Sabedoria dos velhos", "Transformação profunda"], genero: "feminino", tipo: "brasileira"},
+  "Imburana": {planeta: "Saturno", temperatura: "fria", usos: ["Cura respiratória profunda", "Proteção ancestral", "Sabedoria da terra", "Resistência"], genero: "feminino", tipo: "brasileira"},
+  "Faveleira": {planeta: "Saturno", temperatura: "fria", usos: ["Cicatrização espiritual", "Resistência em tempos difíceis", "Cura de feridas emocionais", "Proteção contra adversidades"], genero: "feminino", tipo: "brasileira"},
+  "Xique-xique": {planeta: "Saturno", temperatura: "fria", usos: ["Paciência", "Resistência", "Longevidade", "Proteção contra escassez", "Estabilidade"], genero: "masculino", tipo: "brasileira"},
+  "Folha-de-mamão": {planeta: "Saturno", temperatura: "fria", usos: ["Cura profunda", "Proteção ancestral", "Nutrição espiritual", "Conexão com Nanã"], genero: "feminino", tipo: "brasileira"},
+  "Reishi": {planeta: "Saturno", temperatura: "fria", usos: ["Longevidade espiritual", "Sabedoria ancestral", "Imortalidade simbólica", "Conexão com ancestrais"], genero: "masculino", tipo: "chinesa"},
+  "Neem": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação profunda", "Proteção contra negatividade", "Limpeza energética", "Banimento"], genero: "feminino", tipo: "ayurvedica"},
+  "Kanna Vermelha": {planeta: "Saturno", temperatura: "fria", usos: ["Força ancestral", "Conexão com antepassados", "Sabedoria antiga", "Estabilidade"], genero: "feminino", tipo: "africana"},
+  "Teixo": {planeta: "Saturno", temperatura: "fria", usos: ["Transformação profunda", "Morte e renascimento", "Longevidade", "Conexão com ancestrais"], genero: "feminino", tipo: "europeia"},
+  "Bétula": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação", "Renovação", "Proteção", "Novos começos"], genero: "feminino", tipo: "europeia"},
+  "Azevinho": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Sorte", "Sonhos proféticos", "Proteção contra raios"], genero: "masculino", tipo: "europeia"},
+  "Bambu": {planeta: "Saturno", temperatura: "fria", usos: ["Flexibilidade", "Resistência", "Crescimento", "Proteção", "Sorte"], genero: "masculino", tipo: "asiatica"},
+  "Schisandra": {planeta: "Saturno", temperatura: "fria", usos: ["Longevidade", "Adaptação", "Resistência", "Equilíbrio dos cinco elementos"], genero: "feminino", tipo: "chinesa"},
+  // NOVAS PLANTAS DE SATURNO DAS TRADIÇÕES REGIONAIS
+  "Pinhão Branco": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção contra feitiçaria", "Limpeza profunda", "Banimento de energias negativas", "Purificação de terreiros"], genero: "masculino", tipo: "tambor-mina"},
+  "Folha de Mamoneiro": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção ancestral", "Limpeza profunda", "Conexão com antepassados", "Estabilidade"], genero: "feminino", tipo: "batuque"},
+  "Pinhão Roxo": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção profunda", "Limpeza ancestral", "Banimento", "Purificação intensa"], genero: "masculino", tipo: "xango"},
+  "Erva de São Bento": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção contra malefícios", "Exorcismo", "Banimento", "Purificação profunda"], genero: "masculino", tipo: "encantaria"},
+  // NOVAS PLANTAS DE SATURNO DAS TRADIÇÕES DE JUREMA, CANDOMBLÉ E UMBANDA
+  "Mufumbo": {planeta: "Saturno", temperatura: "fria", usos: ["Limpeza profunda", "Purificação", "Banimento", "Proteção ancestral"], genero: "masculino", tipo: "jurema"},
+  "Mamona": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Limpeza profunda", "Energia de Exú", "Banimento"], genero: "feminino", tipo: "candomble"},
+  "Folha de Bambu": {planeta: "Saturno", temperatura: "fria", usos: ["Flexibilidade", "Resistência", "Energia de Xangô", "Proteção"], genero: "masculino", tipo: "candomble"},
+  "Boldo-do-chile": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação", "Limpeza", "Energia de Oxalá", "Proteção"], genero: "feminino", tipo: "candomble"},
+  "Folha de Inhame": {planeta: "Saturno", temperatura: "fria", usos: ["Nutrição espiritual", "Ancestralidade", "Energia de Nanã", "Proteção"], genero: "feminino", tipo: "candomble"},
+  "Folha de Café": {planeta: "Saturno", temperatura: "morna", usos: ["Sabedoria", "Ancestralidade", "Energia dos pretos-velhos", "Proteção"], genero: "masculino", tipo: "umbanda"},
+  "Para-tudo": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção extrema", "Parar negatividade", "Banimento", "Estabilidade"], genero: "feminino", tipo: "umbanda"},
+  // NOVAS CASCAS E ERVAS DE SATURNO
+  "Casca d'Anta": {planeta: "Saturno", temperatura: "fria", usos: ["Cura profunda", "Problemas gástricos", "Proteção ancestral", "Resistência"], genero: "feminino", tipo: "cascas"},
+  "Casca de Barbatimão": {planeta: "Saturno", temperatura: "fria", usos: ["Cicatrização profunda", "Cura de feridas emocionais", "Proteção", "Estabilidade"], genero: "masculino", tipo: "cascas"},
+  "Casca de Peroba": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção ancestral", "Sabedoria antiga", "Estabilidade", "Longevidade"], genero: "feminino", tipo: "cascas"},
+  "Casca de Quina": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção contra malefícios", "Cura profunda", "Resistência", "Banimento"], genero: "feminino", tipo: "cascas"},
+  "Casca de Bétula": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação", "Renovação", "Novos começos", "Proteção"], genero: "feminino", tipo: "cascas"},
+  "Abeto": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção", "Aterramento", "Estabilidade", "Resistência"], genero: "masculino", tipo: "mundial"},
+  "Fo-Ti": {planeta: "Saturno", temperatura: "fria", usos: ["Longevidade", "Sabedoria ancestral", "Força", "Estabilidade"], genero: "masculino", tipo: "mundial"},
+  "Kigelia": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção ancestral", "Cura profunda", "Estabilidade", "Resistência"], genero: "feminino", tipo: "mundial"},
+  "Chaparral": {planeta: "Saturno", temperatura: "fria", usos: ["Purificação profunda", "Proteção", "Longevidade", "Banimento"], genero: "masculino", tipo: "mundial"},
+  "Raiz de Ló": {planeta: "Saturno", temperatura: "fria", usos: ["Proteção durante viagens", "Segurança", "Estabilidade", "Aterramento"], genero: "feminino", tipo: "mundial"},
+  "Mandrágora": {planeta: "Saturno", temperatura: "fria", usos: ["Poder extremo", "Proteção", "Magia avançada", "Transformação"], genero: "feminino", tipo: "mundial"},
+  "Valeriana": {planeta: "Saturno", temperatura: "fria", usos: ["Calma profunda", "Sono", "Proteção", "Estabilidade"], genero: "feminino", tipo: "mundial"},
+  "Kava Kava": {planeta: "Saturno", temperatura: "fria", usos: ["Calma profunda", "Paz", "Relaxamento", "Proteção"], genero: "feminino", tipo: "mundial"},
+  "Skullcap": {planeta: "Saturno", temperatura: "fria", usos: ["Calma mental", "Proteção psíquica", "Estabilidade", "Paz"], genero: "feminino", tipo: "mundial"}
+};
+
+// Descrições das regências planetárias
+const regenciasPlanetarias = {
+  "Sol": "☉ Sol - Rege a vitalidade, autoridade, sucesso, liderança e força vital. Representa o princípio masculino ativo, a consciência e o ego.",
+  "Lua": "☽ Lua - Rege as emoções, intuição, sonhos, psiquismo e o feminino sagrado. Representa os ciclos, a receptividade e o inconsciente.",
+  "Marte": "♂ Marte - Rege a força, coragem, proteção, banimento e guerra. Representa a energia ativa, a defesa e a transformação através do conflito.",
+  "Venus": "♀ Vênus - Rege o amor, beleza, harmonia, arte e prazer. Representa a união, a atração e os valores estéticos.",
+  "Mercurio": "☿ Mercúrio - Rege a comunicação, intelecto, viagens, comércio e habilidades. Representa a mente, a adaptabilidade e a troca de informações.",
+  "Jupiter": "♃ Júpiter - Rege a expansão, sabedoria, prosperidade, justiça e crescimento. Representa a abundância, a filosofia e a busca por significado.",
+  "Saturno": "♄ Saturno - Rege a disciplina, estrutura, limitações, tempo e responsabilidade. Representa a maturidade, a paciência e as lições de vida."
+};
+
+// Descrições das tradições
+const tradicoesInfo = {
+  "brasileira": "🇧🇷 Plantas Brasileiras - Tradições indígenas, quilombolas e populares do Brasil (Amazônia, Cerrado, Mata Atlântica, Caatinga)",
+  "europeia": "🇪🇺 Plantas Europeias - Tradições celtas, medievais e herbalismo europeu clássico",
+  "cunningham": "📚 Plantas de Cunningham - Correspondências da Enciclopédia de Ervas Mágicas de Scott Cunningham",
+  "chinesa": "🇨🇳 Medicina Tradicional Chinesa - Plantas da milenar tradição chinesa de cura e longevidade",
+  "ayurvedica": "🇮🇳 Plantas Ayurvédicas - Tradição medicinal indiana baseada nos doshas e elementos",
+  "africana": "🌍 Plantas Africanas - Tradições dos povos originários da África e suas práticas ancestrais",
+  "indigena": "🏔️ Plantas Indígenas - Tradições dos povos nativos das Américas e suas plantas sagradas",
+  "asiatica": "🌏 Plantas Asiáticas - Outras tradições asiáticas (budismo, taoísmo, culturas regionais)",
+  "tambor-mina": "🥁 Tambor de Mina - Tradição afro-maranhense que cultua Voduns e Orixás",
+  "batuque": "🥁 Batuque do RS - Tradição afro-gaúcha de culto aos Orixás",
+  "xango": "⚡ Xangô de PE - Tradição afro-pernambucana",
+  "cabula": "🌊 Cabula do ES - Tradição afro-capixaba",
+  "encantaria": "🌟 Encantarias - Outras tradições regionais brasileiras (Amazônica, Nordestina, Mineira)",
+  "jurema": "🌙 Jurema Sagrada - Tradição nordestina indígena e mestiça do Catimbó/Jurema",
+  "candomble": "🌺 Candomblé - Tradição afro-brasileira de culto aos Orixás com folhas sagradas (Ewé)",
+  "umbanda": "🕯️ Umbanda - Tradição afro-brasileira sincrética com ervas de descarrego e proteção",
+  "cascas": "🌳 Cascas Sagradas - Cascas de árvores com propriedades mágicas e medicinais tradicionais",
+  "mundial": "🌍 Ervas Mundiais - Plantas de tradições globais (Mediterrâneas, Nórdicas, Americanas, Australianas)"
+};
+
+// Sistema completo de inimizades planetárias
+const conflitosPlanetarios = {
+  "Sol": {
+    inimigos: ["Saturno"],
+    inimigos_menores: ["Lua"],
+    razoes: {
+      "Saturno": "Sol representa expansão, vitalidade e liberdade, enquanto Saturno representa limitação, disciplina e restrição",
+      "Lua": "Sol representa o consciente e a ação, enquanto Lua representa o inconsciente e a receptividade (conflito menor)"
+    },
+    efeitos_combinacao: {
+      "Saturno": "Pode criar tensão entre impulsos de crescimento e necessidade de contenção, gerando frustração, bloqueios energéticos ou sensação de opressão",
+      "Lua": "Pode gerar conflito entre razão e emoção, criando instabilidade emocional leve ou dificuldade de integração"
+    },
+    neutralizacao: {
+      "Saturno": "Use ervas de Júpiter para equilibrar (como Sálvia, Dente-de-leão ou Cedro) ou realize o banho em horário de Júpiter (quinta-feira)",
+      "Lua": "Use ervas de Vênus para harmonizar (como Rosa ou Lavanda) ou adicione mel ao banho para suavizar"
+    }
+  },
+  "Lua": {
+    inimigos: [],
+    inimigos_menores: ["Sol", "Marte"],
+    razoes: {
+      "Sol": "Lua representa o inconsciente e receptividade, enquanto Sol representa consciência e ação (conflito menor)",
+      "Marte": "Lua representa emoções suaves e intuição, enquanto Marte representa agressividade e ação impulsiva (conflito menor)"
+    },
+    efeitos_combinacao: {
+      "Sol": "Pode criar desequilíbrio entre emoção e razão, gerando instabilidade emocional ou dificuldade de integração",
+      "Marte": "Pode gerar irritabilidade emocional ou impulsos agressivos que perturbam a paz interior"
+    },
+    neutralizacao: {
+      "Sol": "Use ervas de Vênus para harmonizar (como Lavanda ou Rosa) ou faça o banho durante o crepúsculo",
+      "Marte": "Use ervas de Vênus para suavizar (como Camomila ou Melissa) ou adicione água de rosas ao banho"
+    }
+  },
+  "Marte": {
+    inimigos: ["Venus"],
+    inimigos_menores: ["Lua"],
+    razoes: {
+      "Venus": "Marte representa guerra, conflito e agressividade, enquanto Vênus representa paz, harmonia e amor",
+      "Lua": "Marte representa ação impulsiva e agressividade, enquanto Lua representa emoções suaves e receptividade (conflito menor)"
+    },
+    efeitos_combinacao: {
+      "Venus": "Pode gerar conflitos internos intensos entre impulsos agressivos e necessidade de harmonia, causando instabilidade emocional e dificuldades nos relacionamentos",
+      "Lua": "Pode causar irritabilidade emocional, impulsos agressivos que perturbam a intuição ou reações emocionais exageradas"
+    },
+    neutralizacao: {
+      "Venus": "Use ervas da Lua para equilibrar (como Artemísia ou Sálvia Branca) ou faça o banho durante a lua crescente",
+      "Lua": "Use ervas de Vênus para suavizar (como Rosa ou Camomila) ou adicione água de rosas ao banho"
+    }
+  },
+  "Venus": {
+    inimigos: ["Marte"],
+    inimigos_menores: [],
+    razoes: {
+      "Marte": "Vênus busca harmonia, paz e beleza, enquanto Marte traz conflito, agressividade e guerra"
+    },
+    efeitos_combinacao: {
+      "Marte": "Pode criar turbulência emocional intensa, dificuldades nos relacionamentos, conflitos entre desejo de paz e impulsos agressivos"
+    },
+    neutralizacao: {
+      "Marte": "Use ervas da Lua para equilibrar (como Artemísia ou Melissa) ou faça o banho durante a lua crescente para suavizar"
+    }
+  },
+  "Mercurio": {
+    inimigos: [],
+    inimigos_menores: ["Jupiter"],
+    razoes: {
+      "Jupiter": "Mercúrio foca em detalhes, comunicação rápida e versatilidade, enquanto Júpiter busca expansão, filosofia e visão ampla (conflito menor)"
+    },
+    efeitos_combinacao: {
+      "Jupiter": "Pode gerar dispersão mental, dificuldade de foco ou conflito entre análise detalhada e visão ampla"
+    },
+    neutralizacao: {
+      "Jupiter": "Use ervas de Saturno para dar estrutura (como Boldo ou Patchouli) ou faça o banho no sábado para organizar as energias"
+    }
+  },
+  "Jupiter": {
+    inimigos: [],
+    inimigos_menores: ["Mercurio"],
+    razoes: {
+      "Mercurio": "Júpiter busca expansão, filosofia e visão ampla, enquanto Mercúrio foca em detalhes e comunicação específica (conflito menor)"
+    },
+    efeitos_combinacao: {
+      "Mercurio": "Pode causar dispersão de energia, dificuldade de concentração ou conflito entre visão ampla e necessidade de detalhes"
+    },
+    neutralizacao: {
+      "Mercurio": "Use ervas de Saturno para estruturar (como Cipreste ou Barba de Velho) ou adicione sal marinho ao banho para aterramento"
+    }
+  },
+  "Saturno": {
+    inimigos: ["Sol"],
+    inimigos_menores: [],
+    razoes: {
+      "Sol": "Saturno impõe limitações, disciplina e estrutura rígida, enquanto o Sol busca expansão, criatividade e liberdade"
+    },
+    efeitos_combinacao: {
+      "Sol": "Pode causar sensação de opressão, dificuldade para expressar criatividade, bloqueios na vitalidade natural ou depressão"
+    },
+    neutralizacao: {
+      "Sol": "Use ervas de Júpiter para mediar (como Quebra-pedra, Sálvia ou Cedro) ou adicione mel ao banho para suavizar a rigidez"
+    }
+  }
+};
+
+function gerarSelects() {
+  const quantidade = parseInt(document.getElementById("quantidade").value);
+  const container = document.getElementById("ervasSelects");
+  container.innerHTML = "";
+
+  for (let i = 0; i < quantidade; i++) {
+    const select = document.createElement("select");
+    select.id = "erva" + i;
+    
+    // Opção padrão
+    const optionDefault = document.createElement("option");
+    optionDefault.value = "";
+    optionDefault.textContent = `Selecione a ${i + 1}ª erva`;
+    select.appendChild(optionDefault);
+
+    // Adicionar todas as ervas organizadas
+    Object.keys(ervas).sort().forEach(nomeErva => {
+      const option = document.createElement("option");
+      option.value = nomeErva;
+      option.textContent = nomeErva;
+      
+      // Adicionar indicadores visuais
+      if (ervas[nomeErva].tipo === "brasileira") {
+        option.textContent += " 🇧🇷";
+        option.className = "erva-brasileira";
+      } else if (ervas[nomeErva].tipo === "europeia") {
+        option.textContent += " 🇪🇺";
+        option.className = "erva-europeia";
+      } else if (ervas[nomeErva].tipo === "cunningham") {
+        option.textContent += " 📚";
+        option.className = "erva-cunningham";
+      } else if (ervas[nomeErva].tipo === "chinesa") {
+        option.textContent += " 🇨🇳";
+        option.className = "erva-chinesa";
+      } else if (ervas[nomeErva].tipo === "ayurvedica") {
+        option.textContent += " 🇮🇳";
+        option.className = "erva-ayurvedica";
+      } else if (ervas[nomeErva].tipo === "africana") {
+        option.textContent += " 🌍";
+        option.className = "erva-africana";
+      } else if (ervas[nomeErva].tipo === "indigena") {
+        option.textContent += " 🏔️";
+        option.className = "erva-indigena";
+      } else if (ervas[nomeErva].tipo === "asiatica") {
+        option.textContent += " 🌏";
+        option.className = "erva-asiatica";
+      } else if (ervas[nomeErva].tipo === "tambor-mina") {
+        option.textContent += " 🥁";
+        option.className = "erva-tambor-mina";
+      } else if (ervas[nomeErva].tipo === "batuque") {
+        option.textContent += " 🥁";
+        option.className = "erva-batuque";
+      } else if (ervas[nomeErva].tipo === "xango") {
+        option.textContent += " ⚡";
+        option.className = "erva-xango";
+      } else if (ervas[nomeErva].tipo === "cabula") {
+        option.textContent += " 🌊";
+        option.className = "erva-cabula";
+      } else if (ervas[nomeErva].tipo === "encantaria") {
+        option.textContent += " 🌟";
+        option.className = "erva-encantaria";
+      } else if (ervas[nomeErva].tipo === "jurema") {
+        option.textContent += " 🌙";
+        option.className = "erva-jurema";
+      } else if (ervas[nomeErva].tipo === "candomble") {
+        option.textContent += " 🌺";
+        option.className = "erva-candomble";
+      } else if (ervas[nomeErva].tipo === "umbanda") {
+        option.textContent += " 🕯️";
+        option.className = "erva-umbanda";
+      } else if (ervas[nomeErva].tipo === "cascas") {
+        option.textContent += " 🌳";
+        option.className = "erva-cascas";
+      } else if (ervas[nomeErva].tipo === "mundial") {
+        option.textContent += " 🌍";
+        option.className = "erva-mundial";
+      }
+      
+      select.appendChild(option);
+    });
+
+    container.appendChild(select);
+  }
+}
+
+function obterDetalhesConflito(planeta1, planeta2) {
+  const dados1 = conflitosPlanetarios[planeta1];
+  const dados2 = conflitosPlanetarios[planeta2];
+  
+  // Verificar inimizades principais
+  if (dados1 && dados1.inimigos.includes(planeta2)) {
+    return {
+      tipo: "principal",
+      razao: dados1.razoes[planeta2],
+      efeitos: dados1.efeitos_combinacao[planeta2],
+      neutralizacao: dados1.neutralizacao[planeta2]
+    };
+  }
+  
+  if (dados2 && dados2.inimigos.includes(planeta1)) {
+    return {
+      tipo: "principal",
+      razao: dados2.razoes[planeta1],
+      efeitos: dados2.efeitos_combinacao[planeta1],
+      neutralizacao: dados2.neutralizacao[planeta1]
+    };
+  }
+  
+  // Verificar inimizades menores
+  if (dados1 && dados1.inimigos_menores && dados1.inimigos_menores.includes(planeta2)) {
+    return {
+      tipo: "menor",
+      razao: dados1.razoes[planeta2],
+      efeitos: dados1.efeitos_combinacao[planeta2],
+      neutralizacao: dados1.neutralizacao[planeta2]
+    };
+  }
+  
+  if (dados2 && dados2.inimigos_menores && dados2.inimigos_menores.includes(planeta1)) {
+    return {
+      tipo: "menor",
+      razao: dados2.razoes[planeta1],
+      efeitos: dados2.efeitos_combinacao[planeta1],
+      neutralizacao: dados2.neutralizacao[planeta1]
+    };
+  }
+  
+  return null;
+}
+
+function analisarCombinacao() {
+  const qtd = parseInt(document.getElementById("quantidade").value);
+  let selecionadas = [];
+  for (let i = 0; i < qtd; i++) {
+    const valor = document.getElementById("erva" + i).value;
+    if (valor) {
+      selecionadas.push(valor);
+    }
+  }
+
+  if (selecionadas.length < qtd) {
+    alert("Por favor, selecione todas as ervas antes de analisar.");
+    return;
+  }
+
+  let temperaturas = {};
+  let planetas = {};
+  let usos = new Set();
+  let conflitos = [];
+  let conflitosDetalhados = [];
+  let ervasPorTradicao = {};
+
+  selecionadas.forEach(erva => {
+    const dados = ervas[erva];
+    temperaturas[dados.temperatura] = (temperaturas[dados.temperatura] || 0) + 1;
+    planetas[dados.planeta] = (planetas[dados.planeta] || 0) + 1;
+    dados.usos.forEach(u => usos.add(u));
+    
+    const tradicao = dados.tipo || "tradicional";
+    if (!ervasPorTradicao[tradicao]) {
+      ervasPorTradicao[tradicao] = [];
+    }
+    ervasPorTradicao[tradicao].push(erva);
+  });
+
+  const planetasArray = Object.keys(planetas);
+  for (let i = 0; i < planetasArray.length; i++) {
+    for (let j = i + 1; j < planetasArray.length; j++) {
+      const p1 = planetasArray[i];
+      const p2 = planetasArray[j];
+      
+      const detalhes = obterDetalhesConflito(p1, p2);
+      if (detalhes) {
+        const simbolo = detalhes.tipo === "principal" ? "⚔️" : "⚠️";
+        conflitos.push(`${simbolo} ${p1} ⨯ ${p2}`);
+        conflitosDetalhados.push({
+          planetas: `${p1} vs ${p2}`,
+          tipo: detalhes.tipo,
+          ...detalhes
+        });
+      }
+    }
+  }
+
+  const resultadoDiv = document.getElementById("resultado");
+  resultadoDiv.style.display = 'block';
+
+  let texto = `<h2>Resultado da Combinação</h2>`;
+  texto += `<p><strong>Ervas Selecionadas:</strong> ${selecionadas.join(", ")}</p>`;
+  
+  // Mostrar ervas por tradição
+  Object.keys(ervasPorTradicao).forEach(tradicao => {
+    const icones = {
+      "brasileira": "🇧🇷",
+      "europeia": "🇪🇺", 
+      "cunningham": "📚",
+      "chinesa": "🇨🇳",
+      "ayurvedica": "🇮🇳",
+      "africana": "🌍",
+      "indigena": "🏔️",
+      "asiatica": "🌏",
+      "tambor-mina": "🥁",
+      "batuque": "🥁",
+      "xango": "⚡",
+      "cabula": "🌊",
+      "encantaria": "🌟",
+      "jurema": "🌙",
+      "candomble": "🌺",
+      "umbanda": "🕯️",
+      "cascas": "🌳",
+      "mundial": "🌍",
+      "tradicional": "🌿"
+    };
+    const icone = icones[tradicao] || "🌿";
+    const nomes = {
+      "brasileira": "Brasileiras",
+      "europeia": "Europeias",
+      "cunningham": "Cunningham",
+      "chinesa": "Chinesas",
+      "ayurvedica": "Ayurvédicas",
+      "africana": "Africanas",
+      "indigena": "Indígenas",
+      "asiatica": "Asiáticas",
+      "tambor-mina": "Tambor de Mina",
+      "batuque": "Batuque do RS",
+      "xango": "Xangô de PE",
+      "cabula": "Cabula do ES",
+      "encantaria": "Encantarias",
+      "jurema": "Jurema Sagrada",
+      "candomble": "Candomblé",
+      "umbanda": "Umbanda",
+      "cascas": "Cascas Sagradas",
+      "mundial": "Mundiais",
+      "tradicional": "Tradicionais"
+    };
+    const nome = nomes[tradicao] || "Tradicionais";
+    texto += `<p><strong>${icone} Ervas ${nome}:</strong> ${ervasPorTradicao[tradicao].join(", ")}</p>`;
+  });
+
+  texto += `<p><strong>Usos Mágickos Combinados:</strong> ${Array.from(usos).join(", ")}</p>`;
+
+  const tempTextos = Object.keys(temperaturas).map(temp => {
+    const classe = temp;
+    return `<span class="${classe}">${temp.charAt(0).toUpperCase() + temp.slice(1)} (${temperaturas[temp]})</span>`;
+  });
+  texto += `<p><strong>Balanço de Temperaturas:</strong> ${tempTextos.join(" ")}</p>`;
+
+  // Mostrar regências planetárias
+  if (Object.keys(planetas).length > 0) {
+    texto += `<div class="regencias-planetarias">`;
+    texto += `<h3>Regências Planetárias</h3>`;
+    Object.keys(planetas).forEach(planeta => {
+      const descricao = regenciasPlanetarias[planeta] || `${planeta} - Descrição não disponível`;
+      texto += `<div class="planeta-info">${descricao}</div>`;
+    });
+    texto += `</div>`;
+  }
+
+  // Mostrar tradições representadas
+  if (Object.keys(ervasPorTradicao).length > 0) {
+    texto += `<div class="tradicoes-info">`;
+    texto += `<h3>Tradições Representadas</h3>`;
+    Object.keys(ervasPorTradicao).forEach(tradicao => {
+      const descricao = tradicoesInfo[tradicao] || `${tradicao} - Descrição não disponível`;
+      texto += `<div class="tradicao-item">${descricao}</div>`;
+    });
+    texto += `</div>`;
+  }
+
+  // Mostrar conflitos se existirem
+  if (conflitos.length > 0) {
+    texto += `<div style="margin-top: 20px; padding: 15px; background-color: rgba(255, 107, 107, 0.1); border-radius: 8px; border-left: 4px solid #ff6b6b;">`;
+    texto += `<h3 style="color: #ff6b6b; margin-bottom: 10px;">⚠️ Atenção! Conflitos Planetários Detectados: ⚔️ ${conflitos.join(" ")}</h3>`;
+    
+    conflitosDetalhados.forEach(conflito => {
+      const corTitulo = conflito.tipo === "principal" ? "#ff6b6b" : "#ffb84d";
+      const tipoTexto = conflito.tipo === "principal" ? "CONFLITO PRINCIPAL" : "CONFLITO MENOR";
+      
+      texto += `<div class="conflito-detalhado">`;
+      texto += `<h4 style="color: ${corTitulo};">⚔️ ${tipoTexto}: ${conflito.planetas}</h4>`;
+      texto += `<p><strong>Razão:</strong> ${conflito.razao}</p>`;
+      texto += `<p><strong>Efeitos:</strong> ${conflito.efeitos}</p>`;
+      texto += `<div class="neutralizacao">`;
+      texto += `<p><strong>💎 Neutralização:</strong> ${conflito.neutralizacao}</p>`;
+      texto += `</div>`;
+      texto += `</div>`;
+    });
+    
+    texto += `</div>`;
+  } else {
+    texto += `<p class="sem-conflito"><strong>✅ Excelente! Não há conflitos planetários detectados nesta combinação.</strong></p>`;
+  }
+
+  // Dica de banho
+  texto += `<div class="dica-banho">`;
+  texto += `<h3>💧 Dica de Banho Sagrado</h3>`;
+  
+  texto += `<div style="background: rgba(178, 209, 177, 0.2); padding: 12px; border-radius: 6px; margin: 10px 0; border-left: 3px solid var(--cor-suave);">`;
+  texto += `<p><strong>🌿 ERVAS SECAS:</strong> Ferva por 10 minutos em água pura. As ervas secas já passaram pelo processo de transformação natural.</p>`;
+  texto += `<p><strong>🌱 ERVAS FRESCAS:</strong> NUNCA ferva! Macere com respeito, pois representam espíritos vivos. Ao macerar, você está extraindo o "sangue verde" da planta - sua energia vital.</p>`;
+  texto += `<p><strong>🙏 PROCESSO SAGRADO:</strong> A maceração deve ser feita com intenção, oração, conjuração ou canto. Nunca de forma robótica ou distraída. Conecte-se com o espírito da planta e peça permissão para usar sua energia.</p>`;
+  texto += `</div>`;
+  
+  if (conflitos.length > 0) {
+    texto += `<p><strong>⚠️ Conflitos Detectados:</strong> Prepare cada erva separadamente (secas fervidas, frescas maceradas) e misture apenas na hora do banho. Use as neutralizações sugeridas acima para harmonizar as energias.</p>`;
+  } else {
+    texto += `<p><strong>✅ Combinação Harmoniosa:</strong> Prepare as ervas conforme seu estado (secas fervidas, frescas maceradas), misture com intenção e use morno do pescoço para baixo. Mentalize seus objetivos durante todo o processo.</p>`;
+  }
+  
+  texto += `<p style="font-style: italic; color: #b2d1b1; margin-top: 10px;"><strong>Lembre-se:</strong> O banho de ervas é um ritual sagrado. Trate as plantas como seres vivos e conscientes, pois elas são seus aliados espirituais neste trabalho.</p>`;
+  texto += `</div>`;
+
+  resultadoDiv.innerHTML = texto;
+}
+
+// Inicializar com 2 ervas
+window.onload = function() {
+  gerarSelects();
+};
+  </script>
+</body>
+</html>
+
