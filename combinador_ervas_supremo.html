@@ -1042,12 +1042,21 @@ function analisarCombinacao() {
 
   // Dica de banho
   texto += `<div class="dica-banho">`;
-  texto += `<h3>💧 Dica de Banho</h3>`;
+  texto += `<h3>💧 Dica de Banho Sagrado</h3>`;
+  
+  texto += `<div style="background: rgba(178, 209, 177, 0.2); padding: 12px; border-radius: 6px; margin: 10px 0; border-left: 3px solid var(--cor-suave);">`;
+  texto += `<p><strong>🌿 ERVAS SECAS:</strong> Ferva por 10 minutos em água pura. As ervas secas já passaram pelo processo de transformação natural.</p>`;
+  texto += `<p><strong>🌱 ERVAS FRESCAS:</strong> NUNCA ferva! Macere com respeito, pois representam espíritos vivos. Ao macerar, você está extraindo o "sangue verde" da planta - sua energia vital.</p>`;
+  texto += `<p><strong>🙏 PROCESSO SAGRADO:</strong> A maceração deve ser feita com intenção, oração, conjuração ou canto. Nunca de forma robótica ou distraída. Conecte-se com o espírito da planta e peça permissão para usar sua energia.</p>`;
+  texto += `</div>`;
+  
   if (conflitos.length > 0) {
-    texto += `<p>Devido aos conflitos detectados, prepare o banho com cuidado especial. Ferva as ervas separadamente e misture apenas na hora do banho. Adicione sal grosso para neutralizar energias conflitantes.</p>`;
+    texto += `<p><strong>⚠️ Conflitos Detectados:</strong> Prepare cada erva separadamente (secas fervidas, frescas maceradas) e misture apenas na hora do banho. Adicione sal grosso para neutralizar energias conflitantes.</p>`;
   } else {
-    texto += `<p>Esta é uma combinação harmoniosa! Ferva todas as ervas juntas por 10 minutos, coe e use morno do pescoço para baixo. Mentalize seus objetivos durante o banho.</p>`;
+    texto += `<p><strong>✅ Combinação Harmoniosa:</strong> Prepare as ervas conforme seu estado (secas fervidas, frescas maceradas), misture com intenção e use morno do pescoço para baixo. Mentalize seus objetivos durante todo o processo.</p>`;
   }
+  
+  texto += `<p style="font-style: italic; color: #b2d1b1; margin-top: 10px;"><strong>Lembre-se:</strong> O banho de ervas é um ritual sagrado. Trate as plantas como seres vivos e conscientes, pois elas são seus aliados espirituais neste trabalho.</p>`;
   texto += `</div>`;
 
   resultadoDiv.innerHTML = texto;
